@@ -1,20 +1,29 @@
-name: Build APK
+[app]
 
-on:
-  push:
-    branches:
-      - main
+title = Snake Game
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+package.name = snakegame
 
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+package.domain = org.test
 
-    - name: Build with Buildozer
-      uses: ArtemSBulgakov/buildozer-action@v1
+source.dir = .
 
-      with:
-        command: buildozer android debug
+source.include_exts = py,png,jpg,kv,atlas
+
+version = 1.0
+
+requirements = python3,kivy==2.3.0
+
+orientation = portrait
+
+fullscreen = 0
+
+android.api = 33
+
+android.minapi = 21
+
+[buildozer]
+
+log_level = 2
+
+warn_on_root = 1
